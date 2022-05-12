@@ -1,4 +1,5 @@
 import subprocess
+import os
 from threading import Thread
 from pyrogram import Client, filters
 from pykeyboard import InlineKeyboard
@@ -8,9 +9,9 @@ import asyncio
 import re
 from os import mkdir, system
 
-AppId = 6969  #Replace With Your Own
-AppHash = "deafbeef2fb23af2bab23f23aaff2a3"  #Replace With Your Own
-BotToken = "13265466:AaSaddDaHGwaBdadsaDHfafw4daw"  #Replace With Your Own
+AppId=os.environ.get("API_ID")  #Replace With Your Own
+AppHash=os.environ.get("API_HASH") #Replace With Your Own
+BotToken=os.environ.get("BOT_TOKEN")  #Replace With Your Own
 app = Client("FFMpvdvdvdvegot", api_id=AppId, api_hash=AppHash, bot_token=BotToken)
 
 
