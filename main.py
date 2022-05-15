@@ -92,7 +92,7 @@ async def upload2tg(query, fpath):
 @app.on_message(filters.private & filters.video)
 async def vid(app, update):
     filename = (f" ./downloads/{update.video.file_name}")
-    filename = await app.download_media(message=message, file_name=filename)
+    filename = await app.download_media(file_name=filename)
     pkfile = str(filename) + ".mkv"
     try:
      ( 'ffmpeg -i "{}" -c:v copy -c:a copy -map 0  "{pkfile}" ' )
