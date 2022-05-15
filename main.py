@@ -95,7 +95,7 @@ async def vid(app, update):
     filename = await app.download_media(message=message, file_name=filename)
     pkfile = str(filename) + ".mkv"
     try:
-    outfile = 'ffmpeg -i "{}" -c:v copy -c:a copy -map 0  "{pkfile}"  '
+     ( 'ffmpeg -i "{}" -c:v copy -c:a copy -map 0  "{pkfile}" ' )
     except Exception as e:
         app.edit(f"``{e}``")
     await update.reply_video(pkfile, quote=True, supports_streaming=False )
