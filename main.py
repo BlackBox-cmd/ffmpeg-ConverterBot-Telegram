@@ -100,8 +100,6 @@ async def vid(app, update):
         app.edit(f"``{e}``")
     await update.reply_video(pkfile, quote=True, supports_streaming=False )
     os.remove(pkfile)
-    else:
-      pass
 
 
 
