@@ -89,7 +89,7 @@ async def upload2tg(query, fpath):
     dirname = '/'.join(fpath.split("/")[:-1])
     system("rm -rf "+dirname)
 
-@app.on_message(filters.privete & filters.video)
+@app.on_message(filters.private & filters.video)
 async def vid(app, update):
     filename = (f" ./downloads/{message.video.file_name}")
     filename = await app.download_media(message=message, file_name=filename)
