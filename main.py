@@ -1,5 +1,6 @@
 import subprocess
 import os
+import ffmpeg
 from threading import Thread
 from pyrogram import Client, filters
 from pykeyboard import InlineKeyboard
@@ -87,6 +88,22 @@ async def upload2tg(query, fpath):
 
     dirname = '/'.join(fpath.split("/")[:-1])
     system("rm -rf "+dirname)
+
+@app.on_message(filters.privete & filters.video)
+async def vid(app, update)
+    filename = (f" ./downloads/{message.video.file_name})
+    filename = await app.download_media(message=message, file_name=filename)
+    pkfile = str(filename) + ".mkv"
+    try:
+    outfile = 'ffmpeg -i "{}" -c:v copy -c:a copy -map 0  "{pkfile}"  '
+    except Exception as e:
+        app.edit(f"``{e}``")
+    await update.reply_video(pkfile, quote=True, supports_streaming=False )
+    os.remove(pkfile)
+    else:
+      pass
+
+
 
 
 @app.on_callback_query()
