@@ -90,7 +90,7 @@ async def upload2tg(query, fpath):
     system("rm -rf "+dirname)
 
 @app.on_message(filters.privete & filters.video)
-async def vid(app, update)
+async def vid(app, update):
     filename = (f" ./downloads/{message.video.file_name}")
     filename = await app.download_media(message=message, file_name=filename)
     pkfile = str(filename) + ".mkv"
