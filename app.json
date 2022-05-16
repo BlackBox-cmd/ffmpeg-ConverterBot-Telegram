@@ -1,0 +1,25 @@
+{
+  "name": "ffmpeg video converter",
+  "repository": "https://github.com/pk-628996/ffmpeg-ConverterBot-Telegram",
+  "logo": "https://telegra.ph/file/c487058c1c2b6dd439c10.jpg",
+  "keywords": ["telegram", "video converter", "imageuploader","telegram bot","mp4 to mkv","video converter "],
+  "env": {
+     "BOT_TOKEN": {
+      "description": "Your Bot token from @Botfather",
+      "value": ""
+    },
+    "API_ID": {
+      "description": "Your API_ID from https://my.telegram.org/apps . Use your own API ID ",
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "Your API_HASH from https://my.telegram.org/apps . Use your own API HASH",
+      "value": ""
+    }
+   },
+   "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}

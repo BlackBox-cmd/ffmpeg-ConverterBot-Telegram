@@ -1,4 +1,6 @@
 import subprocess
+import os
+import ffmpeg
 from threading import Thread
 from pyrogram import Client, filters
 from pykeyboard import InlineKeyboard
@@ -8,9 +10,9 @@ import asyncio
 import re
 from os import mkdir, system
 
-AppId = 6969  #Replace With Your Own
-AppHash = "deafbeef2fb23af2bab23f23aaff2a3"  #Replace With Your Own
-BotToken = "13265466:AaSaddDaHGwaBdadsaDHfafw4daw"  #Replace With Your Own
+AppId=os.environ.get("API_ID")  #Replace With Your Own
+AppHash=os.environ.get("API_HASH") #Replace With Your Own
+BotToken=os.environ.get("BOT_TOKEN")  #Replace With Your Own
 app = Client("FFMpvdvdvdvegot", api_id=AppId, api_hash=AppHash, bot_token=BotToken)
 
 
@@ -86,6 +88,20 @@ async def upload2tg(query, fpath):
 
     dirname = '/'.join(fpath.split("/")[:-1])
     system("rm -rf "+dirname)
+
+@app.on_message(filters.private & filters.video)
+async def vid(app, update):
+    filename = (f" ./downloads/{update.video.file_name}")
+    filename = await app.download_media(message="""fool""", file_name=filename)
+    pkfile = str(filename) + ".mkv"
+    try:
+     ( 'ffmpeg -i "{}" -c:v copy -c:a copy -map 0  "{pkfile}" ' )
+    except Exception as e:
+        app.edit(f"``{e}``")
+    await update.reply_video(pkfile, quote=True, supports_streaming=False )
+    os.remove(pkfile)
+
+
 
 
 @app.on_callback_query()
