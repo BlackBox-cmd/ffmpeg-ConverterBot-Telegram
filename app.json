@@ -1,7 +1,7 @@
 {
   "name": "ffmpeg video converter",
-  "repository": "https://github.com/pk-628996/ffmpeg-ConverterBot-Telegram",
-  "logo": "https://telegra.ph/file/c487058c1c2b6dd439c10.jpg",
+  "repository": "https://github.com/BlackBox-cmd/ffmpeg-ConverterBot-Telegram",
+  "logo": "https://telegra.ph/file/2d860fde7de7ef8e3191e.png",
   "keywords": ["telegram", "video converter", "imageuploader","telegram bot","mp4 to mkv","video converter "],
   "env": {
      "BOT_TOKEN": {
